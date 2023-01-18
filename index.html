@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Font converter</h1>
+        </div>
+        <form onSubmit="changeFont(event)">
+            <p> <label class="printxt" for="headlable">Enter your text here: </label></p>
+            <textarea id="textinput" name="textinput" rows="10" cols="60" placeholder="Enter Text Here"></textarea><br>
+      
+        <label for="cars" class="printxt"> Choose your Font</label>
+
+        <select name="fonts" id="fonts">
+            <option value="'Monserrat', sans-serif">Montserrat</option>
+            <option value="'Roboto Condensed', sans-serif">Roboto Condensed</option>
+            <option value="'Ubuntu', sans-serif">Ubuntu</option>
+            <option value="'lato', sans-serif">lato</option>
+        </select> <br /><br />
+        <input type="submit" value="Submit">
+        </form>
+        <br />
+        <label for="Output" class="printxt">Converted Text:</label>
+        <br>
+        <textarea name="" id="newtext" rows="10" cols="60" placeholder="Converted text"></textarea>
+
+    </div>
+    <footer>
+        <a href="http:google.com" target="_blank">Google</a><br />
+        &copy; copyrights. All Rights Researved.
+        <span id="date"></span>
+    </footer>
+</body>
+<script>
+    
+  
+    document.getElementById("date").innertext = new Date().getFullYear();
+    function changeFont(event) {
+
+        // prevent the page from reloading
+        event.preventDefault();
+        let text = document.getElementById("textinput").value;
+        console.log(text);
+        //Getting Font name from select Drop down menu
+        let Fontname = document.getElementById("fonts").value;
+        console.log(Fontname);
+
+
+        //This is the element thathas the output textarea
+        let convertedText = document.getElementById("newtext");
+        console.log(convertedText);
+
+        // changimg text of the output text area.
+        convertedText.innerText = text;
+
+        // adding a font style for output text area
+        convertedText.style.fontFamily =Fontname;
+
+    }
+
+</script>
+
+</html>
